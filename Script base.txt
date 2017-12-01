@@ -1,0 +1,52 @@
+CREATE DATABASE examen2
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Spanish_Spain.1252'
+    LC_CTYPE = 'Spanish_Spain.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+-------------------------------------------------------------------------------------
+
+
+
+CREATE TABLE public.productos
+(
+    id_producto integer NOT NULL,
+    nombre character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    precio integer NOT NULL,
+    tipo character varying(15) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT productos_pkey PRIMARY KEY (id_producto)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.productos
+    OWNER to postgres;
+
+
+CREATE TABLE public.compras
+(
+    nombre_usuario character varying(21) COLLATE pg_catalog."default" NOT NULL,
+    edad integer NOT NULL,
+    sexo "char" NOT NULL,
+    id_producto integer NOT NULL,
+    fecha character varying(21) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT id_producto FOREIGN KEY (id_producto)
+        REFERENCES public.productos (id_producto) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.compras
+    OWNER to postgres;
+
+
+-----------------------------------------------------------------------------
