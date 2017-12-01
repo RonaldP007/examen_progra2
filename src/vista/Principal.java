@@ -35,6 +35,7 @@ public class Principal extends javax.swing.JDialog {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -51,6 +52,9 @@ public class Principal extends javax.swing.JDialog {
             }
         });
 
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("Reporte2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,7 +65,8 @@ public class Principal extends javax.swing.JDialog {
                     .addComponent(jRadioButton1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jButton1)
-                        .addComponent(jRadioButton2)))
+                        .addComponent(jRadioButton2))
+                    .addComponent(jRadioButton3))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -71,9 +76,11 @@ public class Principal extends javax.swing.JDialog {
                 .addComponent(jRadioButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton2)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
 
         pack();
@@ -87,6 +94,9 @@ public class Principal extends javax.swing.JDialog {
         } else if (jRadioButton2.isSelected()) {
             Compra_Productos cp = new Compra_Productos(new JFrame(), true);
             cp.setVisible(true);
+        } else if (jRadioButton3.isSelected()) {
+            reporte2 r2 = new reporte2(new JFrame(), true);
+            r2.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -137,5 +147,6 @@ public class Principal extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     // End of variables declaration//GEN-END:variables
 }

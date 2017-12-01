@@ -113,4 +113,34 @@ public class conectar {
 
         return se_registro;
     }
+     
+     public ArrayList<String> rep2(String tipo) {
+        conectar bd = new conectar();
+        connection = bd.Conexion();
+        String precio;
+        String nombre;
+        String tipo1;
+        ArrayList<String> lista = new ArrayList<>();
+        try {
+            s = connection.createStatement();
+            rs = s.executeQuery("SELECT nombre, precio, tipo  FROM productos WHERE tipo ='" + tipo + "'");
+            while (rs.next()) {
+                
+                nombre = rs.getString("nombre");
+                precio= rs.getString("precio");
+                tipo1= rs.getString("tipo");
+                
+                lista.add(nombre);
+                lista.add(precio);
+                lista.add(tipo1);
+            }
+            if (lista.size()>=1){
+                return lista;
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            return null;
+        }
+    }
 }
